@@ -131,7 +131,7 @@ window.onload = function() {
                 87: 'forward',
                 83: 'backward',
                 67: 'crouch',
-                16: 'run'
+                ShiftLeft: 'run'
             };
             this.states = {
                 'left': false,
