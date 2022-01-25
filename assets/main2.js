@@ -131,7 +131,7 @@ window.onload = function() {
                 87: 'forward',
                 83: 'backward',
                 67: 'crouch',
-                ShiftLeft: 'run'
+                87 && 16: 'run'
             };
             this.states = {
                 'left': false,
@@ -139,7 +139,7 @@ window.onload = function() {
                 'forward': false,
                 'backward': false,
                 'crouch': false,
-                'run': false;
+                'run': false
             };
             document.addEventListener('keydown', this.onKey.bind(this, true), false);
             document.addEventListener('keyup', this.onKey.bind(this, false), false);
@@ -147,7 +147,7 @@ window.onload = function() {
     }
 
     Controls.prototype.onKey = function (val, e) {
-        let state = this.codes[e.keyCode];
+        let state = this.codes[e.keyCode] || this.codes[e.87] && e.ShiftLeft;
         if (typeof state === 'undefined') return;
         this.states[state] = val;
         e.preventDefault && e.preventDefault();
@@ -190,7 +190,7 @@ window.onload = function() {
         if(states.left)  this.rotate(-Math.PI * this.rotationSpeed / 60);
         if(states.forward)  this.walk( this.moveSpeed / 60, map);
         if(states.backward) this.walk(-this.moveSpeed / 60, map);
-        if(states.forward && states.run)  this.walk( this.moveSpeed / 30, map);
+        if(states.run)  this.walk( this.moveSpeed / 30, map);
     }
 
     class Camera3D {
