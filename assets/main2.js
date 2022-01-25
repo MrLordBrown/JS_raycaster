@@ -22,7 +22,7 @@ window.onload = function() {
         return this.wallGrid[y][x];
     }
 
-    Map.prototype.drawMiniMap = function(canv, player) {zzzzzz
+    Map.prototype.drawMiniMap = function(canv, player) {
 
         // Set canvas size
         canv.width = this.width * this.scale;
@@ -186,8 +186,8 @@ window.onload = function() {
     Player.prototype.move = function(states, map) {
         if(states.right) this.rotate( Math.PI * this.rotationSpeed / 60);
         if(states.left)  this.rotate(-Math.PI * this.rotationSpeed / 60);
-        if(states.forward) this.moveSpeed / 60, map);
-        if(states.backward) this.walk(-this.moveSpeed / 60, map);
+        if(states.forward)  this.walk(this.moveSpeed / 60, map);
+      if(states.backward) this.walk(-this.moveSpeed / 60, map);
     }
 
     class Camera3D {
