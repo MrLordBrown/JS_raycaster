@@ -186,13 +186,7 @@ window.onload = function() {
     Player.prototype.move = function(states, map) {
         if(states.right) this.rotate( Math.PI * this.rotationSpeed / 60);
         if(states.left)  this.rotate(-Math.PI * this.rotationSpeed / 60);
-        if(states.forward)  {
-            if (event.shiftkey) {
-                this.walk( this.moveSpeed / 60, map);
-            } else {
-           this.walk( this.moveSpeed / 30, map);
-            }
-        }
+        if(states.forward) this.moveSpeed / 60, map);
         if(states.backward) this.walk(-this.moveSpeed / 60, map);
     }
 
