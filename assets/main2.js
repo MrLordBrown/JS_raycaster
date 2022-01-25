@@ -190,7 +190,9 @@ window.onload = function() {
             if (evemt.shiftkey) {
                 this.walk( this.moveSpeed / 60, map);
             } else {
-           this.walk( this.moveSpeed / 30, map);     
+           this.walk( this.moveSpeed / 30, map);
+            }
+        }
         if(states.backward) this.walk(-this.moveSpeed / 60, map);
     }
 
