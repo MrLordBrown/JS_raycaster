@@ -187,7 +187,7 @@ window.onload = function() {
         if(states.right) this.rotate( Math.PI * this.rotationSpeed / 60);
         if(states.left)  this.rotate(-Math.PI * this.rotationSpeed / 60);
         if(states.forward)  {
-            if (evemt.shiftkey) {
+            if (event.shiftkey) {
                 this.walk( this.moveSpeed / 60, map);
             } else {
            this.walk( this.moveSpeed / 30, map);
