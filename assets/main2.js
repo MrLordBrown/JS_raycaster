@@ -130,14 +130,16 @@ window.onload = function() {
                 68: 'right',
                 87: 'forward',
                 83: 'backward',
-                67: 'crouch'
+                67: 'crouch',
+                16: 'run'
             };
             this.states = {
                 'left': false,
                 'right': false,
                 'forward': false,
                 'backward': false,
-                'crouch': false
+                'crouch': false,
+                'run': false;
             };
             document.addEventListener('keydown', this.onKey.bind(this, true), false);
             document.addEventListener('keyup', this.onKey.bind(this, false), false);
@@ -188,6 +190,7 @@ window.onload = function() {
         if(states.left)  this.rotate(-Math.PI * this.rotationSpeed / 60);
         if(states.forward)  this.walk( this.moveSpeed / 60, map);
         if(states.backward) this.walk(-this.moveSpeed / 60, map);
+        if(states.forward && states.run)  this.walk( this.moveSpeed / 30, map);
     }
 
     class Camera3D {
